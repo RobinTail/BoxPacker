@@ -7,7 +7,7 @@ them all in.
 Especially useful for e.g. e-commerce contexts when you need to know box size/weight to calculate shipping costs.
 
 [![Build Status](https://travis-ci.org/dvdoug/BoxPacker.svg?branch=master)](https://travis-ci.org/dvdoug/BoxPacker)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dvdoug/BoxPacker/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dvdoug/BoxPacker/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dvdoug/BoxPacker/badges/quality-score.png?b=2.x-dev)](https://scrutinizer-ci.com/g/dvdoug/BoxPacker/?branch=2.x-dev)
 [![Download count](https://img.shields.io/packagist/dt/dvdoug/boxpacker.svg)](https://packagist.org/packages/dvdoug/boxpacker)
 [![Download count](https://img.shields.io/packagist/v/dvdoug/boxpacker.svg)](https://packagist.org/packages/dvdoug/boxpacker)
 
@@ -40,7 +40,7 @@ If you use [Composer](http://getcomposer.org/), just add `dvdoug/boxpacker` to y
 ```json
     {
         "require": {
-            "dvdoug/boxpacker": "^2.0"
+            "dvdoug/boxpacker": "^2.3.0"
         }
     }
 ```
@@ -57,6 +57,10 @@ Basic usage then looks something like the below:
 (although you'd probably want to do something more useful with the results than just output to the screen, and your dimensional data would hopefully come from a database!)
 
 ```php
+
+  use DVDoug\BoxPacker\Packer;
+  use DVDoug\BoxPacker\TestBox;  // use your own implementation
+  use DVDoug\BoxPacker\TestItem; // use your own implementation
 
   /*
    * To figure out which boxes you need, and which items go into which box
@@ -101,10 +105,16 @@ Basic usage then looks something like the below:
   /* $packedBox->getItems() contains the items that fit */
 ```
 
-BoxPacker is designed to run calculations as efficiently as possible, the 4500+ tests in the test suite run in 13
-seconds in the Ubuntu VM on my workstation, giving a rate of 350+ solutions/second which should be more than sufficient for
+BoxPacker is designed to run calculations as efficiently as possible, the 9100+ tests in the test suite run in 41
+seconds on my workstation, giving a rate of 220+ solutions/second which should be more than sufficient for
 most e-commerce stores :) If you do wish to benchmark the library to evaluate performance in your own scenarios, please
-disable Xdebug when doing so - in my experience the unit tests take 4.5x longer (11.9sec->54 sec) when Xdebug is loaded.
+disable Xdebug when doing so - in my experience the unit tests take 24x longer (41 sec->16 min) when Xdebug is loaded.
+
+Advanced Usage
+--------------
+For more advanced use cases where greater control over the contents of each box is required (e.g. legal limits on the
+number of hazardous items per box), you may implement the `BoxPacker\ConstrainedItem` interface which contains an
+additional callback method allowing you to decide whether an item may be packed into a box given it's existing contents.
 
 Requirements
 ------------
