@@ -1,5 +1,5 @@
 title: Boxpacker
-description: 3D bin packing / knapsack problem solver
+description: 3D/4D bin packing / knapsack problem solver
 google_analytics: 
 show_downloads: true
 theme: jekyll-theme-architect
