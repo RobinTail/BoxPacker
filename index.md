@@ -8,7 +8,7 @@ Especially useful for e.g. e-commerce contexts when you need to know box size/we
 even just want to know the right number of labels to print.
 
 [![Build Status](https://travis-ci.org/dvdoug/BoxPacker.svg?branch=master)](https://travis-ci.org/dvdoug/BoxPacker)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dvdoug/BoxPacker/badges/quality-score.png?b=2.x-dev)](https://scrutinizer-ci.com/g/dvdoug/BoxPacker/?branch=2.x-dev)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dvdoug/BoxPacker/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dvdoug/BoxPacker/?branch=master)
 [![Download count](https://img.shields.io/packagist/dt/dvdoug/boxpacker.svg)](https://packagist.org/packages/dvdoug/boxpacker)
 [![Download count](https://img.shields.io/packagist/v/dvdoug/boxpacker.svg)](https://packagist.org/packages/dvdoug/boxpacker)
 
@@ -60,8 +60,8 @@ Basic usage then looks something like the below:
 ```php
 
   use DVDoug\BoxPacker\Packer;
-  use DVDoug\BoxPacker\TestBox;  // use your own implementation
-  use DVDoug\BoxPacker\TestItem; // use your own implementation
+  use DVDoug\BoxPacker\Test\TestBox;  // use your own implementation
+  use DVDoug\BoxPacker\Test\TestItem; // use your own implementation
 
   /*
    * To figure out which boxes you need, and which items go into which box
